@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour {
     private void FixedUpdate()
     {
         MovementOne();
+        ClampMovement();
         //MovementTwo();
     }
 
@@ -53,7 +54,12 @@ public class PlayerMovement : MonoBehaviour {
         transform.position += new Vector3(moveH * moveSpeed * Time.deltaTime, 0f, moveV * moveSpeed * Time.deltaTime);
         if (Mathf.Abs(moveH) > 0.01f && Mathf.Abs(moveV) > 0.01f)
         {
-
+            transform.position += new Vector3(moveH * moveSpeed * 0.7071f * Time.deltaTime, 0f, moveV * moveSpeed * 0.7071f * Time.deltaTime);
         }
+    }
+
+    void ClampMovement()
+    {
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -8.5f, 8.5f), transform.position.y, Mathf.Clamp(transform.position.z, -0.5f, 5.5f));
     }
 }

@@ -10,12 +10,19 @@ public class Bullet : MonoBehaviour {
 
     public BulletState currentBulletState = BulletState.inPool;
 
+    float timer;
+
     private void OnCollisionEnter(Collision collision)
     {
+
+        collision.gameObject.SendMessage("TakeDamage", 1);
+
         if (currentBulletState == BulletState.inUse)
         {
             DestroyBullet();
         }
+
+
     }
 
     private void Update()
@@ -23,7 +30,15 @@ public class Bullet : MonoBehaviour {
         if (currentBulletState == BulletState.inUse)
         {
             transform.position += direction * force;
+            timer += Time.deltaTime;
+            if (timer >= 2f && currentBulletState == BulletState.inUse)
+            {
+                DestroyBullet();
+                
+            }
         }
+
+       
     }
     
 
@@ -57,6 +72,8 @@ public class Bullet : MonoBehaviour {
         {
             OnDestroy(this);
         }
+        timer = 0f;
+        gameObject.tag = null;
     }
 
     #endregion
