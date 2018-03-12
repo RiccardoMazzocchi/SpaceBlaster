@@ -9,14 +9,12 @@ public class EnemyMovement : MonoBehaviour {
 
     public Transform[] points;
     int destPoint = 0;
-    PathManager pm;
 
     bool turningBack;
 
     // Use this for initialization
     void Start () {
         myNav = GetComponent<NavMeshAgent>();
-        pm = FindObjectOfType<PathManager>();
 
         GotoNextPoint();
 

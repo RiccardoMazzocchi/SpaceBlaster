@@ -14,8 +14,10 @@ public class Bullet : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-
-        collision.gameObject.SendMessage("TakeDamage", 1);
+        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Enemy")
+        {
+            collision.gameObject.SendMessage("TakeDamage", 1);
+        }
 
         if (currentBulletState == BulletState.inUse)
         {
@@ -73,7 +75,6 @@ public class Bullet : MonoBehaviour {
             OnDestroy(this);
         }
         timer = 0f;
-        gameObject.tag = null;
     }
 
     #endregion

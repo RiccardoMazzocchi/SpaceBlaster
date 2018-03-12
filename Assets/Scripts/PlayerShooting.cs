@@ -40,12 +40,12 @@ public class PlayerShooting : MonoBehaviour {
             bulletToShoot.transform.position = ShootStartPos.position;
             bulletToShoot.Shoot(transform.forward, shootingForce);
             bulletToShoot.GetComponentInChildren<MeshRenderer>().material.color = Color.yellow;
-            bulletToShoot.tag = "PlayerBullet";
+            //bulletToShoot.tag = "PlayerBullet";
             Bullet bulletToShoot2 = bpm.GetBullet();
             bulletToShoot2.transform.position = ShootStartPos2.position;
             bulletToShoot2.Shoot(transform.forward, shootingForce);
             bulletToShoot2.GetComponentInChildren<MeshRenderer>().material.color = Color.yellow;
-            bulletToShoot2.tag = "PlayerBullet";
+            //bulletToShoot2.tag = "PlayerBullet";
 
             timer = 0f;
         }

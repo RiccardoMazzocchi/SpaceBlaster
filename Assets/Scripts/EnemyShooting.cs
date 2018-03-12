@@ -30,7 +30,7 @@ public class EnemyShooting : MonoBehaviour {
             bulletToShoot.transform.position = shootStartPos.position;
             bulletToShoot.Shoot(-transform.forward, shootingForce);
             bulletToShoot.GetComponentInChildren<MeshRenderer>().material.color = Color.red;
-            bulletToShoot.tag = "EnemyBullet";
+            //bulletToShoot.tag = "EnemyBullet";
 
             timer = 0f;
         }

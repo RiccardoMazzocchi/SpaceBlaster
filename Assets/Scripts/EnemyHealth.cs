@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour {
     public int health;
+    public int score;
+
+    UIManager uim;
     // Use this for initialization
     void Start () {
-		
+        uim = FindObjectOfType<UIManager>();
 	}
 	
 	// Update is called once per frame
@@ -20,6 +23,7 @@ public class EnemyHealth : MonoBehaviour {
         if (health <= 0)
         {
             gameObject.SetActive(false);
+            uim.scoreText.text += score;
         }
     }
 }

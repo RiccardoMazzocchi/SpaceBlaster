@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Paths : MonoBehaviour {
+public class GameManager : MonoBehaviour {
 
-    public Transform[] path;
-
-    // Use this for initialization
-    void Start () {
-
+	// Use this for initialization
+	void Start () {
+		
 	}
 	
 	// Update is called once per frame
